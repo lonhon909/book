@@ -1,7 +1,7 @@
 <template>
   <div class="app" :style="{'--width':spread?'240px':'50px'}">
     <header class="app-top">
-      <span class="icon iconfont" @click="spread=!spread">&#xe68a;</span>
+      <span class="iconfont" @click="spread=!spread">&#xe68a;</span>
     </header>
     <div class="app-center">
       <nav class="nav">
@@ -17,7 +17,7 @@
             :key="item.id"
             :name="item.id">
             <template slot="title">
-              <i class="icon iconfont icon-webpack"></i>
+              <i class="iconfont" :class="item.icon"></i>
               {{item.title}}
             </template>
             <template v-for="data in item.children">
@@ -70,7 +70,7 @@ export default {
       menu,
       spread: true
     }
-  }
+  },
 }
 </script>
 
@@ -105,6 +105,7 @@ export default {
     height: 100%;
     padding: 10px;
     box-sizing: border-box;
+    overflow-y: auto;
   }
 }
 .nav-bg {

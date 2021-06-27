@@ -1,12 +1,12 @@
 export default {
     id: 'webpack',
     title: 'webpack',
-    icon: '#xe799;',
+    icon: 'icon-webpack',
     type: 'menu',
     children: [
         {
             id: 'webpack-entry',
-            title: 'entry',
+            title: '入口',
             to: '/webpack/entry'
         },
         {
@@ -22,15 +22,9 @@ export default {
             ]
         },
         {
-            id: 'webpack-3',
-            title: 'webpack-3',
-            type: 'group',
-            children: [
-                {
-                    id: 'webpack-3-1',
-                    title: 'webpack-3-1'
-                }
-            ]
+            id: 'webpack-devTool',
+            title: 'devTool',
+            to: '/webpack/devTool'
         }
     ]
 };

@@ -20,6 +20,12 @@ const router = new Router({
             redirect: '/webpack/entry',
             component: PureComponent,
             children: require('@/pages/webpack/route').default,
+        },
+        {
+            path: '/vuejs',
+            redirect: '/vuejs/a',
+            component: PureComponent,
+            children: require('@/pages/vuejs/route').default,
         }
     ]
 });

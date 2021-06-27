@@ -20,6 +20,15 @@ module.exports = {
                 use: 'vue-loader'
             },
             {
+                test: /\.js/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            },
+            {
                 test: /\.md$/,
                 use: [
                     'vue-loader',

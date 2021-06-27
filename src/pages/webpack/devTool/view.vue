@@ -1,19 +1,18 @@
 <template>
   <div>
-    <hh></hh>
+    <DevTool></DevTool>
   </div>
 </template>
 
 <script>
-import H from './h.md';
-import { add } from '@/assets/js/utils';
+import DevTool from './devTool.md';
 
 export default {
   components: {
-    hh: H
+    DevTool
   },
   mounted() {
-    console.log(add([1, 2, 3]))
+    console.log(100)
   }
 }
 </script>

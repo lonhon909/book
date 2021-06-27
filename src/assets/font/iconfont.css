@@ -1,6 +1,6 @@
 @font-face {
   font-family: "iconfont"; /* Project id  */
-  src: url('iconfont.ttf?t=1624183591280') format('truetype');
+  src: url('iconfont.ttf?t=1624703515839') format('truetype');
 }
 
 .iconfont {
@@ -17,5 +17,29 @@
 
 .icon-webpack:before {
   content: "\e799";
+}
+
+.icon-Vue:before {
+  content: "\e79a";
+}
+
+.icon-http:before {
+  content: "\e89d";
+}
+
+.icon-js:before {
+  content: "\e63b";
+}
+
+.icon-html:before {
+  content: "\e656";
+}
+
+.icon-react:before {
+  content: "\e689";
+}
+
+.icon-css:before {
+  content: "\e618";
 }
 

@@ -8,5 +8,10 @@ export default [
         path: 'htmlWebpackPlugin',
         name: 'webbpack-htmlWebpackPlugin',
         component: () => import(/* webpackChunkName: 'webpackhtmlWebpackPlugin' */'./plugins/htmlWebpackPlugin.vue')
+    },
+    {
+        path: 'devTool',
+        name: 'webpack-devTool',
+        component: () => import(/* webpackChunkName: 'webpackdevTool' */'./devTool/view.vue'),
     }
 ];
