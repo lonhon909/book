@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var a = 'asdasdasdasdafddrbcvnyj123';
+
+        console.log(a.includes('afddr'))
+        console.log(a.startsWith('asdd'))
+        console.log(a.endsWith('123'))
+
+        console.log(a.repeat(2))
+
+        const str = 'zhong hua zhon min gong zhonu guo';
+
+        console.log(str.match(/zhon(?=\s)./g))
+
+        console.log(str.match(/zhon(?!\s)./g))
+
+        console.log(str.match(/(?<=\s)zhon./g))
+
+        console.log(str.match(/(?<!\s)zhon./g))
+
+    </script>
+</body>
+</html>

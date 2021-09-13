@@ -8,7 +8,16 @@ function resolve(dir) {
 }
 
 module.exports = {
-    entry: './src/main.js',
+    entry: {
+        vuejs: {
+            filename: 'xxx.12.js',
+            import: ['vue', 'vuex', 'vue-router']
+        },
+        main: {
+            dependOn: 'vuejs',
+            import: './src/main.js',
+        },
+    },
     output: {
         filename: '[name].[chunkhash:8].js',
         path: resolve('dist')

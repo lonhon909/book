@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack serve --open --config=config/webpack.config.dev.js",
-    "build": "webpack --config=config/webpack.config.prod.js"
+    "build": "webpack --config=config/webpack.config.prod.js",
+    "build2": "webpack --env NODE_ENV=local --env production --progress --config config/webpack.config.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,7 @@
     "html-webpack-plugin": "^5.3.1",
     "less": "^4.1.1",
     "less-loader": "^10.0.0",
+    "moment": "^2.29.1",
     "postcss-loader": "^6.1.0",
     "style-loader": "^2.0.0",
     "url-loader": "^4.1.1",
@@ -37,6 +39,7 @@
     "@babel/preset-env": "^7.14.7",
     "babel-loader": "^8.2.2",
     "iview": "^3.5.4",
+    "jquery": "^3.6.0",
     "vue": "^2.6.14",
     "vue-router": "^3.5.1",
     "vuex": "^3.6.2"
