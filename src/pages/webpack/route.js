@@ -20,6 +20,11 @@ export default [
         component: () => import(/* webpackChunkName: 'webpackWebpackDevServer' */'./pages/webpack-dev-server.vue')
     },
     {
+        path: 'css',
+        name: 'webpack-css',
+        component: () => import(/* webpackChunkName: 'webpackCss' */'./pages/css.vue')
+    },
+    {
         path: 'entry',
         name: 'webpack-entry',
         component: () => import(/* webpackChunkName: 'webpackentry' */'./pages/entry.vue'),

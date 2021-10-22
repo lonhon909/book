@@ -162,14 +162,16 @@ module.exports = {
             },
         },
         // 基于入口提取 CSS
-        cacheGroups: {
-
-            ...Object.keys(entrys).map((item) => ({
-                type: "css/mini-extract",
-                name: item,
-                chunks: (chunk) => chunk.name === item;
-                enforce: true,
-            }))
+        splitChunks: {
+            ...(Object.keys(entrys).reduce((total, item) => {
+                total[item + 'Styles'] = {
+                    type: "css/mini-extract",
+                    name: item,
+                    chunks: (chunk) => chunk.name === item,
+                    enforce: true,
+                }
+                return total;
+            }), {}),
 
             /* fooStyles: {
                 type: "css/mini-extract",
@@ -187,7 +189,7 @@ module.exports = {
                 },
                 enforce: true,
             }, */
-        },
+        }
     },
 }
 ```

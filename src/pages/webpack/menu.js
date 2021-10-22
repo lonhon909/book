@@ -15,6 +15,11 @@ export default {
             to: '/webpack/entry'
         },
         {
+            id: 'webpack-css',
+            title: 'css配置',
+            to: '/webpack/css'
+        },
+        {
             id: 'webpack-dev-server',
             title: 'webpack-dev-server',
             to: '/webpack/webpack-dev-server'
