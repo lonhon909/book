@@ -1,17 +1,32 @@
 export default [
     {
-        path: 'entry',
-        name: 'webpack-entry',
-        component: () => import(/* webpackChunkName: 'webpackentry' */'./entry/view.vue'),
+        path: 'install',
+        name: 'webpack-install',
+        component: () => import(/* webpackChunkName: 'webpackInstall' */'./pages/install.vue')
     },
     {
-        path: 'htmlWebpackPlugin',
-        name: 'webbpack-htmlWebpackPlugin',
-        component: () => import(/* webpackChunkName: 'webpackhtmlWebpackPlugin' */'./plugins/htmlWebpackPlugin.vue')
+        path: 'html-webpack-plugin',
+        name: 'webpack-htmlWebpackPlugin',
+        component: () => import(/* webpackChunkName: 'webpackhtmlWebpackPlugin' */'./pages/htmlWebpackPlugin.vue')
+    },
+    {
+        path: 'clean-webpack-plugin',
+        name: 'webpack-clean-webpack-plugin',
+        component: () => import(/* webpackChunkName: 'webpackCleanWebpackPlugin' */'./pages/clean-webpack-plugin.vue')
+    },
+    {
+        path: 'webpack-dev-server',
+        name: 'webpack-webpack-dev-server',
+        component: () => import(/* webpackChunkName: 'webpackWebpackDevServer' */'./pages/webpack-dev-server.vue')
+    },
+    {
+        path: 'entry',
+        name: 'webpack-entry',
+        component: () => import(/* webpackChunkName: 'webpackentry' */'./pages/entry.vue'),
     },
     {
         path: 'devTool',
         name: 'webpack-devTool',
-        component: () => import(/* webpackChunkName: 'webpackdevTool' */'./devTool/view.vue'),
+        component: () => import(/* webpackChunkName: 'webpackdevTool' */'./pages/devTool.vue'),
     }
 ];

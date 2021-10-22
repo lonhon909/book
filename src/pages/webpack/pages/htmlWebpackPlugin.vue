@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import HtmlWebpackPlugin from './html.md';
+import HtmlWebpackPlugin from '../md/htmlWebpackPlugin.md';
 
 export default {
     components: {

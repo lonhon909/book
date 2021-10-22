@@ -38,6 +38,11 @@ module.exports = {
                 }
             },
             {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/
+            },
+            {
                 test: /\.md$/,
                 use: [
                     'vue-loader',
@@ -52,15 +57,17 @@ module.exports = {
                             includeCodeTag: 'include:code', // Include code tag; format: [include:code](filePath)
                             includeRawTag: 'include:raw', // Include raw source tag; format: [include:raw](filePath)
                             dest: false, // ouput file; true/false/function
-                            dest (code, contextPath, resourcePath) {}, // Custom write file
+                            dest (code, contextPath, resourcePath) {
+                                console.log(contextPath, resourcePath);
+                            }, // Custom write file
                             markdown: { // markdown-it options see: https://github.com/markdown-it/markdown-it#init-with-presets-and-options
-                              options: {
-                                html: false
-                              },
-                              notWrapper: false,
-                              init (md) {
-                                md.use('markdown-it') // Add markdown-it plug-in
-                              }
+                                options: {
+                                    html: false
+                                },
+                                notWrapper: false,
+                                init (md) {
+                                    md.use('markdown-it') // Add markdown-it plug-in
+                                }
                             }
                         }                          
                     }
@@ -100,7 +107,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.vue', '.less', '.css', '.json'],
+        extensions: ['.js', '.tsx', '.ts', '.vue', '.less', '.css', '.json'],
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
             '@': resolve('src')

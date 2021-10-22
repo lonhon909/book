@@ -5,15 +5,12 @@
 </template>
 
 <script>
-import DevTool from './devTool.md';
+import DevTool from '../md/devTool.md';
 
 export default {
   components: {
     DevTool
   },
-  mounted() {
-    console.log(100)
-  }
 }
 </script>
 

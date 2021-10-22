@@ -22,16 +22,21 @@ const router = new Router({
             children: require('@/pages/webpack/route').default,
         },
         {
-            path: '/vuejs',
-            redirect: '/vuejs/a',
+            path: '/vue',
+            redirect: '/vue/a',
             component: PureComponent,
             children: require('@/pages/vuejs/route').default,
+        },
+        {
+            path: '/ts',
+            redirect: '/ts',
+            component: PureComponent,
+            children: require('@/pages/ts/route').default
         }
     ]
 });
 
 router.beforeEach((to, from, next) => {
-    console.log(to, from, to === from)
     next();
 })
 

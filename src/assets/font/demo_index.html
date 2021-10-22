@@ -47,57 +47,35 @@
         <li class="dib"><span>Symbol</span></li>
       </ul>
       
+      <a href="https://www.iconfont.cn/manage/index?manage_type=myprojects&projectId=2872315" target="_blank" class="nav-more">查看项目</a>
+      
     </div>
     <div class="tab-container">
       <div class="content unicode" style="display: block;">
           <ul class="icon_lists dib-box">
           
             <li class="dib">
-              <span class="icon iconfont">&#xe68a;</span>
+              <span class="icon iconfont">&#xe6c0;</span>
                 <div class="name">展开</div>
-                <div class="code-name">&amp;#xe68a;</div>
+                <div class="code-name">&amp;#xe6c0;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6a3;</span>
+                <div class="name">typescript</div>
+                <div class="code-name">&amp;#xe6a3;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6ae;</span>
+                <div class="name">webpack</div>
+                <div class="code-name">&amp;#xe6ae;</div>
               </li>
           
             <li class="dib">
               <span class="icon iconfont">&#xe799;</span>
-                <div class="name">Webpack</div>
-                <div class="code-name">&amp;#xe799;</div>
-              </li>
-          
-            <li class="dib">
-              <span class="icon iconfont">&#xe79a;</span>
                 <div class="name">Vue</div>
-                <div class="code-name">&amp;#xe79a;</div>
-              </li>
-          
-            <li class="dib">
-              <span class="icon iconfont">&#xe89d;</span>
-                <div class="name">http</div>
-                <div class="code-name">&amp;#xe89d;</div>
-              </li>
-          
-            <li class="dib">
-              <span class="icon iconfont">&#xe63b;</span>
-                <div class="name">js</div>
-                <div class="code-name">&amp;#xe63b;</div>
-              </li>
-          
-            <li class="dib">
-              <span class="icon iconfont">&#xe656;</span>
-                <div class="name">html</div>
-                <div class="code-name">&amp;#xe656;</div>
-              </li>
-          
-            <li class="dib">
-              <span class="icon iconfont">&#xe689;</span>
-                <div class="name">react</div>
-                <div class="code-name">&amp;#xe689;</div>
-              </li>
-          
-            <li class="dib">
-              <span class="icon iconfont">&#xe618;</span>
-                <div class="name">css</div>
-                <div class="code-name">&amp;#xe618;</div>
+                <div class="code-name">&amp;#xe799;</div>
               </li>
           
           </ul>
@@ -118,7 +96,9 @@
 <pre><code class="language-css"
 >@font-face {
   font-family: 'iconfont';
-  src: url('iconfont.ttf?t=1624703515839') format('truetype');
+  src: url('iconfont.woff2?t=1634374777776') format('woff2'),
+       url('iconfont.woff?t=1634374777776') format('woff'),
+       url('iconfont.ttf?t=1634374777776') format('truetype');
 }
 </code></pre>
           <h3 id="-iconfont-">第二步：定义使用 iconfont 的样式</h3>
@@ -154,9 +134,18 @@
           </li>
           
           <li class="dib">
+            <span class="icon iconfont icon-typescript"></span>
+            <div class="name">
+              typescript
+            </div>
+            <div class="code-name">.icon-typescript
+            </div>
+          </li>
+          
+          <li class="dib">
             <span class="icon iconfont icon-webpack"></span>
             <div class="name">
-              Webpack
+              webpack
             </div>
             <div class="code-name">.icon-webpack
             </div>
@@ -168,51 +157,6 @@
               Vue
             </div>
             <div class="code-name">.icon-Vue
-            </div>
-          </li>
-          
-          <li class="dib">
-            <span class="icon iconfont icon-http"></span>
-            <div class="name">
-              http
-            </div>
-            <div class="code-name">.icon-http
-            </div>
-          </li>
-          
-          <li class="dib">
-            <span class="icon iconfont icon-js"></span>
-            <div class="name">
-              js
-            </div>
-            <div class="code-name">.icon-js
-            </div>
-          </li>
-          
-          <li class="dib">
-            <span class="icon iconfont icon-html"></span>
-            <div class="name">
-              html
-            </div>
-            <div class="code-name">.icon-html
-            </div>
-          </li>
-          
-          <li class="dib">
-            <span class="icon iconfont icon-react"></span>
-            <div class="name">
-              react
-            </div>
-            <div class="code-name">.icon-react
-            </div>
-          </li>
-          
-          <li class="dib">
-            <span class="icon iconfont icon-css"></span>
-            <div class="name">
-              css
-            </div>
-            <div class="code-name">.icon-css
             </div>
           </li>
           
@@ -253,9 +197,17 @@
           
             <li class="dib">
                 <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon-typescript"></use>
+                </svg>
+                <div class="name">typescript</div>
+                <div class="code-name">#icon-typescript</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
                   <use xlink:href="#icon-webpack"></use>
                 </svg>
-                <div class="name">Webpack</div>
+                <div class="name">webpack</div>
                 <div class="code-name">#icon-webpack</div>
             </li>
           
@@ -265,46 +217,6 @@
                 </svg>
                 <div class="name">Vue</div>
                 <div class="code-name">#icon-Vue</div>
-            </li>
-          
-            <li class="dib">
-                <svg class="icon svg-icon" aria-hidden="true">
-                  <use xlink:href="#icon-http"></use>
-                </svg>
-                <div class="name">http</div>
-                <div class="code-name">#icon-http</div>
-            </li>
-          
-            <li class="dib">
-                <svg class="icon svg-icon" aria-hidden="true">
-                  <use xlink:href="#icon-js"></use>
-                </svg>
-                <div class="name">js</div>
-                <div class="code-name">#icon-js</div>
-            </li>
-          
-            <li class="dib">
-                <svg class="icon svg-icon" aria-hidden="true">
-                  <use xlink:href="#icon-html"></use>
-                </svg>
-                <div class="name">html</div>
-                <div class="code-name">#icon-html</div>
-            </li>
-          
-            <li class="dib">
-                <svg class="icon svg-icon" aria-hidden="true">
-                  <use xlink:href="#icon-react"></use>
-                </svg>
-                <div class="name">react</div>
-                <div class="code-name">#icon-react</div>
-            </li>
-          
-            <li class="dib">
-                <svg class="icon svg-icon" aria-hidden="true">
-                  <use xlink:href="#icon-css"></use>
-                </svg>
-                <div class="name">css</div>
-                <div class="code-name">#icon-css</div>
             </li>
           
           </ul>

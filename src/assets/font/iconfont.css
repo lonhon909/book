@@ -1,6 +1,8 @@
 @font-face {
-  font-family: "iconfont"; /* Project id  */
-  src: url('iconfont.ttf?t=1624703515839') format('truetype');
+  font-family: "iconfont"; /* Project id 2872315 */
+  src: url('iconfont.woff2?t=1634374777776') format('woff2'),
+       url('iconfont.woff?t=1634374777776') format('woff'),
+       url('iconfont.ttf?t=1634374777776') format('truetype');
 }
 
 .iconfont {
@@ -12,34 +14,18 @@
 }
 
 .icon-zhankai:before {
-  content: "\e68a";
+  content: "\e6c0";
+}
+
+.icon-typescript:before {
+  content: "\e6a3";
 }
 
 .icon-webpack:before {
-  content: "\e799";
+  content: "\e6ae";
 }
 
 .icon-Vue:before {
-  content: "\e79a";
-}
-
-.icon-http:before {
-  content: "\e89d";
-}
-
-.icon-js:before {
-  content: "\e63b";
-}
-
-.icon-html:before {
-  content: "\e656";
-}
-
-.icon-react:before {
-  content: "\e689";
-}
-
-.icon-css:before {
-  content: "\e618";
+  content: "\e799";
 }
 
