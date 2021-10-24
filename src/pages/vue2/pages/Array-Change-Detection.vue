@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ArrayChangeDetection from './md/Array-Change-Detection.md';
+import ArrayChangeDetection from '../md/Array-Change-Detection.md';
 
 export default {
   components: {

@@ -22,10 +22,10 @@ const router = new Router({
             children: require('@/pages/webpack/route').default,
         },
         {
-            path: '/vue',
-            redirect: '/vue/a',
+            path: '/vue2',
+            redirect: '/vue2/a',
             component: PureComponent,
-            children: require('@/pages/vuejs/route').default,
+            children: require('@/pages/vue2/route').default,
         },
         {
             path: '/ts',
