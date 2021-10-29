@@ -90,7 +90,7 @@ module.exports = {
                     loader: MiniCssExtractPlugin.loader,
                     options: {
                         // 为 CSS 内的图片、文件等外部资源指定一个自定义的公共路径
-                        publicPath: './'
+                        publicPath: '../'
                     }
                 }, 'css-loader']
             },
@@ -100,7 +100,7 @@ module.exports = {
                     loader: MiniCssExtractPlugin.loader,
                     options: {
                         // 为 CSS 内的图片、文件等外部资源指定一个自定义的公共路径
-                        publicPath: './'
+                        publicPath: '../'
                     }
                 }, 'css-loader', 'less-loader']
             },
@@ -109,7 +109,7 @@ module.exports = {
                 loader: 'url-loader',
                 options: {
                     limit: 10000,
-                    name: 'fonts/[name].[hash:7].[ext]'
+                    name: 'fonts/[name].[hash:7].[ext]',
                 }
             },
             {

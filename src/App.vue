@@ -63,10 +63,21 @@
 </template>
 
 <script>
+import Menu from 'iview/src/components/menu';
+import Submenu from 'iview/src/components/submenu';
+import MenuItem from 'iview/src/components/menu-item';
+import MenuGroup from 'iview/src/components/menu-group';
+
 import menu from "@/router/menu";
 import { isMobile } from "@/assets/js/utils";
 
 export default {
+    components: {
+        Menu,
+        Submenu,
+        MenuItem,
+        MenuGroup
+    },
     data() {
         return {
             menu,
