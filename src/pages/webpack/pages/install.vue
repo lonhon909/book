@@ -15,5 +15,7 @@ export default {
 </script>
 
 <style>
-
+.webpack-html {
+    padding: 10px;
+}
 </style>

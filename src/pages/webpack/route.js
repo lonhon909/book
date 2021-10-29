@@ -33,5 +33,10 @@ export default [
         path: 'devTool',
         name: 'webpack-devTool',
         component: () => import(/* webpackChunkName: 'webpackdevTool' */'./pages/devTool.vue'),
+    },
+    {
+        path: 'babel',
+        name: '配置babel',
+        component: () => import(/* webpackChunkName: 'webpackBabel' */'./pages/babel.vue'),
     }
 ];

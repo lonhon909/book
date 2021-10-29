@@ -2,15 +2,25 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserJSPlugin = require('terser-webpack-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const devMode = process.env.NODE_ENV !== "production"; // npm i -D cross-env
 
 function resolve(dir) {
     return path.resolve(__dirname, '..', dir);
 }
 
 module.exports = {
+    optimization: {
+        minimizer: [
+            new CssMinimizerPlugin(),
+            new TerserJSPlugin({})
+        ],
+    },
     entry: {
         vuejs: {
-            filename: 'xxx.12.js',
+            filename: 'vue.js',
             import: ['vue', 'vuex', 'vue-router']
         },
         main: {
@@ -19,7 +29,7 @@ module.exports = {
         },
     },
     output: {
-        filename: '[name].[chunkhash:8].js',
+        filename: 'js/[name].[chunkhash:8].js',
         path: resolve('dist')
     },
     module: {
@@ -29,7 +39,7 @@ module.exports = {
                 use: 'vue-loader'
             },
             {
-                test: /\.js/,
+                test: /\.jsx?/,
                 use: {
                     loader: "babel-loader",
                     options: {
@@ -76,11 +86,23 @@ module.exports = {
 
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: [devMode ? 'style-loader' : {
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                        // 为 CSS 内的图片、文件等外部资源指定一个自定义的公共路径
+                        publicPath: './'
+                    }
+                }, 'css-loader']
             },
             {
                 test: /\.less$/,
-                use: ['style-loader', 'css-loader', 'less-loader']
+                use: [devMode ? 'style-loader' : {
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                        // 为 CSS 内的图片、文件等外部资源指定一个自定义的公共路径
+                        publicPath: './'
+                    }
+                }, 'css-loader', 'less-loader']
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
@@ -121,6 +143,14 @@ module.exports = {
             favicon: './star.png'
         }),
 
-        new VueLoaderPlugin()
-    ]
+        new VueLoaderPlugin(),
+
+    ].concat(devMode ? [] : [
+        new MiniCssExtractPlugin({
+            // 类似于 webpackOptions.output 中的选项
+            filename: 'css/[name].[hash].css',
+            // 非入口的 chunk 文件名称
+            chunkFilename: 'css/[name].[chunkhash].css',
+        })
+    ])
 };
