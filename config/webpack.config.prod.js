@@ -1,6 +1,6 @@
 const { merge } = require('webpack-merge');
 const { CleanWebpackPlugin }  = require('clean-webpack-plugin');
-const CopyHtmlToBack = require('./plugin');
+// const CopyHtmlToBack = require('./plugin');
 const baseConfig = require('./webpack.config.base.js');
 
 const prdConfig = merge(baseConfig, {
@@ -8,7 +8,7 @@ const prdConfig = merge(baseConfig, {
 
     plugins: [
         new CleanWebpackPlugin(),
-        new CopyHtmlToBack(['index.html'])
+        // new CopyHtmlToBack(['index.html'])
     ]
 });
 

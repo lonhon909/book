@@ -42,9 +42,14 @@ export default {
             ]
         },
         {
-            id: 'webpack-devTool',
-            title: 'devTool',
-            to: '/webpack/devTool'
-        }
+            id: 'webpack-devtool',
+            title: 'devtool',
+            to: '/webpack/devtool'
+        },
+        {
+            id: 'babel',
+            title: 'babel配置',
+            to: '/webpack/babel'
+        },
     ]
 };

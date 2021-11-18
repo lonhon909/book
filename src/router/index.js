@@ -4,8 +4,15 @@ import PureComponent from './PureComponent';
 
 Vue.use(Router);
 
+const VueRouterPush = Router.prototype.push;
+
+Router.prototype.push = function push (to) {
+    return VueRouterPush.call(this, to).catch((err) => err);
+};
+
 const router = new Router({
-    mode: 'hash',
+    mode: 'history',
+    base: window.__POWERED_BY_QIANKUN__ ? '/vue' : '/',
     routes: [
         {
             path: '/',
@@ -23,16 +30,16 @@ const router = new Router({
         },
         {
             path: '/vue2',
-            redirect: '/vue2/a',
+            redirect: '/vue2/Array-Change-Detection',
             component: PureComponent,
             children: require('@/pages/vue2/route').default,
         },
         {
             path: '/ts',
-            redirect: '/ts',
+            redirect: '/ts/ts-config',
             component: PureComponent,
             children: require('@/pages/ts/route').default
-        }
+        },
     ]
 });
 

@@ -34,4 +34,39 @@ export default [
         name: 'directives',
         component: () => import(/* webpackChunkName: 'directives' */'./pages/directives.vue')
     },
+    {
+        path: 'Vue-extend',
+        name: 'vue-extend',
+        component: () => import(/* webpackChunkName: 'vue-extend' */'./pages/Vue.extend.vue')
+    },
+    {
+        path: 'next-tick',
+        name: 'next-tick',
+        component: () => import(/* webpackChunkName: 'next-tick' */'./pages/next-Tick.vue')
+    },
+    {
+        path: 'keep-alive',
+        name: 'keep-alive',
+        component: () => import(/* webpackChunkName: 'keep-alive' */'./pages/keep-alive.vue')
+    },
+    {
+        path: 'async-component',
+        name: 'async-component',
+        component: () => import(/* webpackChunkName: 'async-component' */'./pages/async-component.vue')
+    },
+    {
+        path: 'forceUpdate',
+        name: 'forceUpdate',
+        component: () => import(/* webpackChunkName: 'forceUpdate' */'./pages/forceUpdate.vue')
+    },
+    {
+        path: 'set',
+        name: 'VueSet',
+        component: () => import(/* webpackChunkName: 'VueSet' */'./pages/$set.vue')
+    },
+    {
+        path: 'vuex',
+        name: 'VuexDemo',
+        component: () => import(/* webpackChunkName: 'VuexDemo' */'./pages/VuexDemo.vue')
+    },
 ];

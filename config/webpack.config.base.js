@@ -11,6 +11,8 @@ function resolve(dir) {
     return path.resolve(__dirname, '..', dir);
 }
 
+const packageName = require('../package').name;
+
 module.exports = {
     optimization: {
         minimizer: [
@@ -28,9 +30,14 @@ module.exports = {
             import: './src/main.js',
         },
     },
+    devtool: 'cheap-source-map',
     output: {
-        filename: 'js/[name].[chunkhash:8].js',
-        path: resolve('dist')
+        filename: 'js/[name].[chunkhash].js',
+        path: resolve('dist'),
+        publicPath: '/',
+        library: `${packageName}-[name]`,
+        libraryTarget: 'umd', // 把微应用打包成 umd 库格式
+        chunkLoadingGlobal: `webpackJsonp_${packageName}`,
     },
     module: {
         rules: [
@@ -42,9 +49,6 @@ module.exports = {
                 test: /\.jsx?/,
                 use: {
                     loader: "babel-loader",
-                    options: {
-                        presets: ['@babel/preset-env']
-                    }
                 }
             },
             {
@@ -67,9 +71,7 @@ module.exports = {
                             includeCodeTag: 'include:code', // Include code tag; format: [include:code](filePath)
                             includeRawTag: 'include:raw', // Include raw source tag; format: [include:raw](filePath)
                             dest: false, // ouput file; true/false/function
-                            dest (code, contextPath, resourcePath) {
-                                console.log(contextPath, resourcePath);
-                            }, // Custom write file
+                            dest (code, contextPath, resourcePath) {}, // Custom write file
                             markdown: { // markdown-it options see: https://github.com/markdown-it/markdown-it#init-with-presets-and-options
                                 options: {
                                     html: false
@@ -79,7 +81,7 @@ module.exports = {
                                     md.use('markdown-it') // Add markdown-it plug-in
                                 }
                             }
-                        }                          
+                        }
                     }
                 ]
             },
@@ -109,7 +111,7 @@ module.exports = {
                 loader: 'url-loader',
                 options: {
                     limit: 10000,
-                    name: 'fonts/[name].[hash:7].[ext]',
+                    name: 'fonts/[name].[contenthash:8].[ext]',
                 }
             },
             {
@@ -138,7 +140,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: '一样标题',
-            filename: resolve('dist/index.html'),
+            filename: 'index.html',
             template: 'index.html',
             favicon: './star.png'
         }),
@@ -148,9 +150,9 @@ module.exports = {
     ].concat(devMode ? [] : [
         new MiniCssExtractPlugin({
             // 类似于 webpackOptions.output 中的选项
-            filename: 'css/[name].[hash].css',
+            filename: 'css/[name].[contenthash:8].css',
             // 非入口的 chunk 文件名称
-            chunkFilename: 'css/[name].[chunkhash].css',
+            chunkFilename: 'css/[name].[contenthash:8].css',
         })
     ])
 };

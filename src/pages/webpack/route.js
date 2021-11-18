@@ -30,9 +30,9 @@ export default [
         component: () => import(/* webpackChunkName: 'webpackentry' */'./pages/entry.vue'),
     },
     {
-        path: 'devTool',
-        name: 'webpack-devTool',
-        component: () => import(/* webpackChunkName: 'webpackdevTool' */'./pages/devTool.vue'),
+        path: 'devtool',
+        name: 'webpack-devtool',
+        component: () => import(/* webpackChunkName: 'webpackdevtool' */'./pages/devtool.vue'),
     },
     {
         path: 'babel',

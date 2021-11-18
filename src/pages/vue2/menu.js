@@ -39,5 +39,40 @@ export default {
             title: '自定义指令',
             to: '/vue2/directives',
         },
+        {
+            id: 'Vue.extend',
+            title: 'Vue.extend',
+            to: '/vue2/Vue-extend',
+        },
+        {
+            id: 'Vue.nextTick',
+            title: '$nextTick',
+            to: '/vue2/next-tick',
+        },
+        {
+            id: 'keepAlive',
+            title: 'keepAlive',
+            to: '/vue2/keep-alive',
+        },
+        {
+            id: 'async-component',
+            title: '异步组件',
+            to: '/vue2/async-component',
+        },
+        {
+            id: 'forceUpdate',
+            title: '$forceUpdate',
+            to: '/vue2/forceUpdate',
+        },
+        {
+            id: 'set',
+            title: 'Vue.$set',
+            to: '/vue2/set',
+        },
+        {
+            id: 'Vuex',
+            title: 'Vuex',
+            to: '/vue2/vuex',
+        },
     ]
 };

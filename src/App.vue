@@ -81,7 +81,7 @@ export default {
     data() {
         return {
             menu,
-            spread: true,
+            spread: false,
         };
     },
     created() {
