@@ -102,6 +102,7 @@ export default {
     display: flex;
     .main {
         flex: 1;
+        padding-left: 10px;
         overflow-y: auto;
         & > :only-child {
             width: 100%;

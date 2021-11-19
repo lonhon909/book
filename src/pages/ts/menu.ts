@@ -29,5 +29,15 @@ export default {
             title: '泛型-genericity',
             to: '/ts/genericity'
         },
+        {
+            id: 'namespace',
+            title: '命名空间',
+            to: '/ts/namespace'
+        },
+        {
+            id: 'declare',
+            title: '申明文件',
+            to: '/ts/declare'
+        },
     ]
 };

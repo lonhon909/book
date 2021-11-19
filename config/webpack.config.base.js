@@ -53,8 +53,11 @@ module.exports = {
             },
             {
                 test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/
+                loader: 'ts-loader',
+                exclude: /node_modules/,
+                options: {
+                    appendTsSuffixTo: [/\.vue$/]
+                }
             },
             {
                 test: /\.md$/,
@@ -74,7 +77,7 @@ module.exports = {
                             dest (code, contextPath, resourcePath) {}, // Custom write file
                             markdown: { // markdown-it options see: https://github.com/markdown-it/markdown-it#init-with-presets-and-options
                                 options: {
-                                    html: false
+                                    html: true
                                 },
                                 notWrapper: false,
                                 init (md) {
@@ -84,6 +87,11 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                // https://webpack.docschina.org/guides/asset-modules/
+                test: /\.txt$/,
+                type: 'asset/source'
             },
 
             {

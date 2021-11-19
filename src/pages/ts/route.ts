@@ -24,4 +24,14 @@ export default [
         name: 'ts-genericity',
         component: () => import(/* webpackChunkName: 'ts-genericity' */'./pages/genericity.vue')
     },
+    {
+        path: 'declare',
+        name: 'DeclarationDocuments',
+        component: () => import(/* webpackChunkName: 'declaration-documents' */'./pages/DeclarationDocuments.vue')
+    },
+    {
+        path: 'namespace',
+        name: 'namespace',
+        component: () => import(/* webpackChunkName: 'namespace' */'./pages/namespace/index.vue')
+    },
 ];
