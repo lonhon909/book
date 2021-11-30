@@ -17,6 +17,19 @@ import iview from './iview';
 
 Object.keys(iview).forEach((item) => Vue.component(item, iview[item]));
 
+
+Vue.mixin({
+    beforeMount() {
+        if (this.$route.meta?.keepAlive) {
+            const cache = this.$store.state.cachesIncludes;
+            if (!cache.includes(this.$route.name)) {
+                cache.push(this.$route.name)
+            }
+            this.$store.commit('setCache', cache.slice());
+        }
+    }
+})
+
 let app = null;
 
 export async function bootstrap() {

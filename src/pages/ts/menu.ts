@@ -39,5 +39,20 @@ export default {
             title: '申明文件',
             to: '/ts/declare'
         },
+        {
+            id: 'statement',
+            title: '仅仅导出/导入声明',
+            to: '/ts/statement'
+        },
+        {
+            id: 'typeof',
+            title: 'typeof',
+            to: '/ts/typeof'
+        },
+        {
+            id: 'keyof',
+            title: 'keyof',
+            to: '/ts/keyof'
+        },
     ]
 };

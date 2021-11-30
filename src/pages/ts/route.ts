@@ -2,7 +2,7 @@ export default [
     {
         path: 'ts-config',
         name: 'TsConfig',
-        component: () => import(/* webpackChunkName: 'ts-config' */'./pages/ts-config.vue')
+        component: () => import(/* webpackChunkName: 'ts-config' */'./pages/ts-config.vue'),
     },
     {
         path: 'interface',
@@ -27,11 +27,26 @@ export default [
     {
         path: 'declare',
         name: 'DeclarationDocuments',
-        component: () => import(/* webpackChunkName: 'declaration-documents' */'./pages/DeclarationDocuments.vue')
+        component: () => import(/* webpackChunkName: 'declaration-documents' */'./pages/DeclarationDocuments.vue'),
     },
     {
         path: 'namespace',
         name: 'namespace',
-        component: () => import(/* webpackChunkName: 'namespace' */'./pages/namespace/index.vue')
+        component: () => import(/* webpackChunkName: 'namespace' */'./pages/namespace/index.vue'),
+    },
+    {
+        path: 'statement',
+        name: 'statement',
+        component: () => import(/* webpackChunkName: 'statement' */'./pages/onlyImportExportStatement.vue'),
+    },
+    {
+        path: 'typeof',
+        name: 'typeof',
+        component: () => import(/* webpackChunkName: 'typeof' */'./pages/typeof.vue'),
+    },
+    {
+        path: 'keyof',
+        name: 'keyof',
+        component: () => import(/* webpackChunkName: 'keyof' */'./pages/keyof.vue'),
     },
 ];

@@ -1,13 +1,13 @@
 export default [
     {
         path: 'Array-Change-Detection',
-        name: 'Array-Change-Detection',
+        name: 'ArrayChangeDetection',
         component: () => import(/* webpackChunkName: 'Array-Change-Detection' */'./pages/Array-Change-Detection.vue')
     },
     {
         path: 'event-modifier',
-        name: 'event-modifier',
-        component: () => import(/* webpackChunkName: 'event-modifier' */'./pages/event-modifier.vue')
+        name: 'EventModifier',
+        component: () => import(/* webpackChunkName: 'event-modifier' */'./pages/event-modifier.vue'),
     },
     {
         path: 'transition-animation',
@@ -46,12 +46,12 @@ export default [
     },
     {
         path: 'keep-alive',
-        name: 'keep-alive',
+        name: 'VueKeepAlive',
         component: () => import(/* webpackChunkName: 'keep-alive' */'./pages/keep-alive.vue')
     },
     {
         path: 'async-component',
-        name: 'async-component',
+        name: 'AsyncComponentView',
         component: () => import(/* webpackChunkName: 'async-component' */'./pages/async-component.vue')
     },
     {

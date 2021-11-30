@@ -30,6 +30,8 @@
                 <div class="box"></div>
             </div>
         </div>
+
+        <Button @click="i++">btn-{{i}}</Button>
     </div>
 </template>
 
@@ -57,7 +59,7 @@ export default {
             }
             console.log(sum)
         }
-    }
+    },
 }
 </script>
 

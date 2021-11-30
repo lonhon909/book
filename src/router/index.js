@@ -40,6 +40,18 @@ const router = new Router({
             component: PureComponent,
             children: require('@/pages/ts/route').default
         },
+        {
+            path: '/es6',
+            redirect: '/es6/regExp',
+            component: PureComponent,
+            children: require('@/pages/es6/route').default
+        },
+        {
+            path: '/css',
+            redirect: '/css/transition',
+            component: PureComponent,
+            children: require('@/pages/css/route').default
+        },
     ]
 });
 

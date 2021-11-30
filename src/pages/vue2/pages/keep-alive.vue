@@ -11,6 +11,8 @@
                 <ChildrenText/>
             </HelloWorld>
         </keep-alive>
+        <br>
+        <Button @click="jump('AsyncComponentView')">进入异步组件将被缓存，试试？</Button>
     </div>
 </template>
 
@@ -50,6 +52,33 @@ export default {
         return {
             activeComponent: 'HelloWorld'
         }
+    },
+    methods: {
+        jump(name) {
+            this.$router.push({
+                name
+            })
+        }
+    },
+    beforeRouteLeave (to, from, next) {
+        console.log(to.name)
+        if (to.name === 'AsyncComponentView') {
+            const cache = this.$store.state.cachesIncludes;
+            if (!cache.includes(from.name)) {
+                cache.push(from.name);
+                this.$store.commit('setCache', cache.slice());
+            }
+        } else {
+            const cache = this.$store.state.cachesIncludes;
+            const index = cache.indexOf(from.name);
+            if (index !== -1) {
+                cache.splice(index, 1);
+                this.$store.commit('setCache', cache.slice());
+            }
+        }
+        setTimeout(() => {
+            next();
+        })
     },
 }
 </script>

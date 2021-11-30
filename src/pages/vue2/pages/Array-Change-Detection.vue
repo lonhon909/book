@@ -1,16 +1,17 @@
 <template>
-  <div>
-    <ArrayChangeDetection />
-  </div>
+    <div>
+        <ArrayChangeDetectionMd />
+    </div>
 </template>
 
 <script>
-import ArrayChangeDetection from '../md/Array-Change-Detection.md';
+import ArrayChangeDetectionMd from '../md/Array-Change-Detection.md';
 
 export default {
-  components: {
-    ArrayChangeDetection
-  }
+    name: 'ArrayChangeDetection',
+    components: {
+        ArrayChangeDetectionMd
+    }
 }
 </script>
 

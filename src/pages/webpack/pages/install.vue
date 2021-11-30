@@ -14,7 +14,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less" scoped>
 .webpack-html {
     padding: 10px;
 }

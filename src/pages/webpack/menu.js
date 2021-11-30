@@ -51,5 +51,15 @@ export default {
             title: 'babel配置',
             to: '/webpack/babel'
         },
+        {
+            id: 'loader',
+            title: '编写一个loader',
+            to: '/webpack/loader'
+        },
+        {
+            id: 'static',
+            title: '静态资源static',
+            to: '/webpack/static'
+        },
     ]
 };

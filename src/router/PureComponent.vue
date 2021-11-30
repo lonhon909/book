@@ -1,15 +1,19 @@
 <template>
   <div class="view-container">
-    <keep-alive>
-      <router-view v-if="$route.meta.keepAlive"></router-view>
+    <keep-alive :include="caches">
+      <router-view></router-view>
     </keep-alive>
-    <router-view v-if="!$route.meta||!$route.meta.keepAlive"></router-view>
   </div>
 </template>
 
 <script>
 export default {
-
+    name: 'PureComponent',
+    computed: {
+        caches() {
+            return this.$store.state.cachesIncludes
+        }
+    },
 }
 </script>
 

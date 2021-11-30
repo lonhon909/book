@@ -5,6 +5,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserJSPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const devMode = process.env.NODE_ENV !== "production"; // npm i -D cross-env
 
 function resolve(dir) {
@@ -39,8 +40,26 @@ module.exports = {
         libraryTarget: 'umd', // 把微应用打包成 umd 库格式
         chunkLoadingGlobal: `webpackJsonp_${packageName}`,
     },
+    resolveLoader: {
+        modules: [
+            'node_modules',
+            resolve('src/pages/webpack/loader')
+        ],
+    },
     module: {
         rules: [
+            {
+                test: /\.txt$/,
+                use: [
+                    {
+                        // 自定义loader
+                        loader: 'foo-loader',
+                        options: {
+                            l: 100
+                        }
+                    }
+                ]
+            },
             {
                 test: /\.vue$/,
                 use: 'vue-loader'
@@ -88,11 +107,11 @@ module.exports = {
                     }
                 ]
             },
-            {
-                // https://webpack.docschina.org/guides/asset-modules/
-                test: /\.txt$/,
-                type: 'asset/source'
-            },
+            // {
+            //     // https://webpack.docschina.org/guides/asset-modules/
+            //     test: /\.txt$/,
+            //     type: 'asset/source',
+            // },
 
             {
                 test: /\.css$/,
@@ -129,8 +148,8 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                       name: '[name].[ext]',
-                      publicPath: 'static',
-                      outputPath: 'static',
+                      publicPath: 'assets',
+                      outputPath: 'assets',
                       limit: 10000
                     }
                   }
@@ -142,7 +161,7 @@ module.exports = {
         extensions: ['.js', '.tsx', '.ts', '.vue', '.less', '.css', '.json'],
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
-            '@': resolve('src')
+            '@': resolve('src'),
         }
     },
     plugins: [
@@ -154,6 +173,12 @@ module.exports = {
         }),
 
         new VueLoaderPlugin(),
+
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: path.resolve(__dirname, '../static'), to: 'static' }
+            ]
+        }),
 
     ].concat(devMode ? [] : [
         new MiniCssExtractPlugin({

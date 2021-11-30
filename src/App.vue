@@ -7,9 +7,12 @@
             <div class="app-center" v-show="spread">
                 <nav class="nav">
                     <Menu
+                        ref="menu"
                         mode="vertical"
                         theme="dark"
                         :accordion="true"
+                        :active-name="activeName"
+                        :open-names="openNames"
                         width="240px"
                         class="nav-bg">
                         <Submenu
@@ -48,7 +51,7 @@
                                 <MenuItem
                                     v-else
                                     :key="data.id"
-                                    :name="data.title"
+                                    :name="data.id"
                                     :to="data.to">{{ data.title }}</MenuItem>
                             </template>
                         </Submenu>
@@ -82,6 +85,8 @@ export default {
         return {
             menu,
             spread: false,
+            activeName: '',
+            openNames: []
         };
     },
     created() {
@@ -89,7 +94,42 @@ export default {
             this.spread = false;
         }
     },
-    mounted() {},
+    mounted() {
+        const route = this.$router.resolve(location.pathname).route;
+        if (route.path) {
+            const result = menu.reduce((total, item) => {
+                total[item.id] = (item.children || []).reduce((data, res) => {
+                    if (Array.isArray(res.children)) {
+                        data.push(...res.children);
+                    } else {
+                        data.push(res)
+                    }
+                    return data;
+                }, []);
+                return total;
+            }, {});
+            const keys = Object.keys(result);
+            let flag = false;
+            for (let i = 0; i < keys.length; i++) {
+                if (flag) {
+                    break;
+                }
+                for (let j = 0; j < result[keys[i]].length; j++) {
+                    if (result[keys[i]][j].to === route.path) {
+                        this.activeName = result[keys[i]][j].id;
+                        this.openNames = [keys[i]];
+                        flag = true;
+                        break;
+                    }
+                }
+            }
+        }
+        this.$nextTick(() => {
+            if (this.activeName) {
+                this.$refs.menu.updateOpened();
+            }
+        })
+    },
 };
 </script>
 

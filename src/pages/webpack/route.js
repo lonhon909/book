@@ -36,7 +36,17 @@ export default [
     },
     {
         path: 'babel',
-        name: '配置babel',
+        name: 'es-babel',
         component: () => import(/* webpackChunkName: 'webpackBabel' */'./pages/babel.vue'),
-    }
+    },
+    {
+        path: 'loader',
+        name: 'xxx-loader',
+        component: () => import(/* webpackChunkName: 'xxx-loader' */'./pages/loader.vue'),
+    },
+    {
+        path: 'static',
+        name: 'static',
+        component: () => import(/* webpackChunkName: 'static' */'./pages/static.vue'),
+    },
 ];
