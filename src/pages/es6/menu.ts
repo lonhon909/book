@@ -14,5 +14,10 @@ export default {
             title: '字符串实列方法',
             to: '/es6/string',
         },
+        {
+            id: 'Reflect',
+            title: 'Reflect',
+            to: '/es6/Reflect',
+        },
     ]
 };

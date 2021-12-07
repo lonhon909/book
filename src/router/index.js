@@ -52,6 +52,12 @@ const router = new Router({
             component: PureComponent,
             children: require('@/pages/css/route').default
         },
+        {
+            path: '/js',
+            redirect: '/js/requestAnimationFrame',
+            component: PureComponent,
+            children: require('@/pages/javascript/route').default
+        },
     ]
 });
 

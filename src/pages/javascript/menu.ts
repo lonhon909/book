@@ -3,5 +3,11 @@ export default {
     title: 'js',
     icon: 'icon-js',
     type: 'menu',
-    children: []
+    children: [
+        {
+            id: 'requestAnimationFrame',
+            title: 'requestAnimationFrame',
+            to: '/js/requestAnimationFrame',
+        },
+    ]
 }
