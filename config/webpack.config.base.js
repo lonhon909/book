@@ -31,7 +31,7 @@ module.exports = {
             import: './src/main.js',
         },
     },
-    devtool: 'cheap-source-map',
+    // devtool: 'cheap-source-map',
     output: {
         filename: 'js/[name].[chunkhash].js',
         path: resolve('dist'),
@@ -162,6 +162,8 @@ module.exports = {
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
             '@': resolve('src'),
+            'echart': resolve('src/assets/js/echarts.js'),
+            'static': resolve('static')
         }
     },
     plugins: [

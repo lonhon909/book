@@ -17,7 +17,6 @@ import iview from './iview';
 
 Object.keys(iview).forEach((item) => Vue.component(item, iview[item]));
 
-
 Vue.mixin({
     beforeMount() {
         if (this.$route.meta?.keepAlive) {

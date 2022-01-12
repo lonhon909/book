@@ -24,5 +24,10 @@ export default {
             title: '固定宽高比',
             to: '/css/square',
         },
+        {
+            id: 'layers',
+            title: '合成层',
+            to: '/css/layers'
+        }
     ]
 };

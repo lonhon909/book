@@ -12,7 +12,7 @@
 `grid-template-rows` | 容器属性 | 设置行的高度 100px（绝对单位）/35%（百分比）
 `grid-row-gap` | 容器属性 | 设置行间距
 `grid-column-gap` | 容器属性 | 设置列间距
-`grid-gap` | 容器属性 | 行间距 列间距缩写
+`grid-gap` | 容器属性 | 简写
 `grid-auto-flow` | 容器属性 | 设置项目的排列方式 row/column/row dense/colmun dense
 `justify-items` | 容器属性 | 设置项目左右对齐方式 start/center/end/stretch
 `align-items` | 容器属性 | 设置项目上下对齐方式 start/center/end/stretch
@@ -20,6 +20,16 @@
 `justify-content` | 容器属性 | 设置整个内容区域在容器里面的水平位置
 `align-content` | 容器属性 | 设置整个内容区域在容器里面的竖直位置
 `place-content` | 容器属性 | 简写
+`grid-column-start` | 项目属性 | 指定项目位置，左边框所在的垂直网格线
+`grid-column-end` | 项目属性 | 指定项目位置，右边框所在的垂直网格线
+`grid-column` | 项目属性 | 简写：start / end
+`grid-row-start` | 项目属性 | 指定项目位置，上边框所在的垂直网格线
+`grid-row-end` | 项目属性 | 指定项目位置，下边框所在的垂直网格线
+`grid-row` | 项目属性 | 简写：start / end
+`grid-area` | 项目属性 | 指定项目放在的区域
+`justify-self` | 项目属性 | 设置单元格内容的水平位置,作用单个项目
+`align-self` | 项目属性 | 设置单元格内容的垂直位置,作用单个项目
+`place-self` | 项目属性 | 简写
 
 ## 容器属性
 
@@ -35,7 +45,7 @@
     grid-template-columns: repeat(2, 100px 20px auto); /* 重复某种模式 */
     /* 2、auto-fill 关键字 项目宽度固定，但是容器宽度不固定 */
     grid-template-columns: repeat(auto-fill, 120px); /* 根据容器宽度自动填充 */
-    /* 3、fr 关键字 */
+    /* 3、fr 关键字 fraction的缩写 */
     grid-template-columns: 120px 1fr 2fr; /* 第三列是第二列宽度的两倍 */
     grid-template-columns: repeat(12, 1fr); /* 等宽12列 */
     /* 4、auto 关键字 */

@@ -19,4 +19,9 @@ export default [
         name: 'css-square',
         component: () => import(/* webpackChunkName: 'css-square' */'./pages/square.vue')
     },
+    {
+        path: 'layers',
+        name: 'css-layers',
+        component: () => import(/* webpackChunkName: 'css-layers' */'./pages/layers.vue')
+    },
 ];

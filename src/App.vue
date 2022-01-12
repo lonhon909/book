@@ -182,6 +182,7 @@ export default {
 }
 .nav-bg {
     height: 100%;
+    overflow: auto;
 }
 .fade-enter,
 .fade-leave-to {
