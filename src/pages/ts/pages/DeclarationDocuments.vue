@@ -26,6 +26,7 @@ Component.registerHooks([
 export default class DeclarationDocuments extends Vue {
     title: string = ''
     num: number = 1
+
     mounted() {
         this.title = __isMobile__ ? 'mobile' : 'pc';
         this.$nextTick(() => {

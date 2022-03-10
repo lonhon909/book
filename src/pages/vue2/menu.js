@@ -74,5 +74,10 @@ export default {
             title: 'Vuex',
             to: '/vue2/vuex',
         },
+        {
+            id: 'on-delete-once-watch',
+            title: '$on$delete$once$watch',
+            to: '/vue2/on-delete-once-watch'
+        },
     ]
 };

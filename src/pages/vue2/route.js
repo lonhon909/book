@@ -69,4 +69,9 @@ export default [
         name: 'VuexDemo',
         component: () => import(/* webpackChunkName: 'VuexDemo' */'./pages/VuexDemo.vue')
     },
+    {
+        path: 'on-delete-once-watch',
+        name: 'on-delete-once-watch',
+        component: () => import(/* webpackChunkName: 'on-delete-once-watch' */'./pages/$on$delete$watch$once.vue')
+    },
 ];

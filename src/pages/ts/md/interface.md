@@ -11,7 +11,7 @@ interface Person {
 
 只读数组
 
-![avatar](./img/ReadonlyArray.png)
+![avatar](http://123.207.22.183/static/ReadonlyArray.png)
 
 ## 1、函数类型
 
@@ -42,7 +42,7 @@ interface Person {
 }
 ```
 
-![avatar](./img/index.png)
+![avatar](http://123.207.22.183/static/index.png)
 
 ## 3、类类型
 

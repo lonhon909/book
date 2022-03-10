@@ -35,6 +35,12 @@ const router = new Router({
             children: require('@/pages/vue2/route').default,
         },
         {
+            path: '/parse',
+            redirect: '/parse/entry',
+            component: PureComponent,
+            children: require('@/pages/vue2.6.14/route').default,
+        },
+        {
             path: '/ts',
             redirect: '/ts/ts-config',
             component: PureComponent,

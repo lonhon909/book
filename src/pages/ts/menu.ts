@@ -54,5 +54,10 @@ export default {
             title: 'keyof',
             to: '/ts/keyof'
         },
+        {
+            id: 'keyword',
+            title: 'TS 特定的关键字',
+            to: '/ts/keyword'
+        },
     ]
 };

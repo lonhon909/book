@@ -49,4 +49,9 @@ export default [
         name: 'keyof',
         component: () => import(/* webpackChunkName: 'keyof' */'./pages/keyof.vue'),
     },
+    {
+        path: 'keyword',
+        name: 'keyword',
+        component: () => import(/* webpackChunkName: 'keyword' */'./pages/keyword.vue'),
+    },
 ];
