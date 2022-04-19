@@ -64,6 +64,12 @@ const router = new Router({
             component: PureComponent,
             children: require('@/pages/javascript/route').default
         },
+        {
+            path: '/web',
+            redirect: '/web/ssh',
+            component: PureComponent,
+            children: require('@/pages/web/route').default
+        },
     ]
 });
 
