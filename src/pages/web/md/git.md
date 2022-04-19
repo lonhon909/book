@@ -44,4 +44,7 @@ git reset HEAD~3
 
 ### 3、git revert -- 还原，不删除提交记录
 
+还原上次提交 `git revert HEAD`
+还原某次提交 `git revert e1bc3bb`（某次提交id，git log 查看），这次提交后的提交记录仍然会被保存，如：a1->b1->c1->d1，执行 `git revert b1` 后，当前分支代码仍然包含 `c1` 与 `d1` 的修改
+
 > 不删除提交记录，并且将此次操作记录为一条新的记录
