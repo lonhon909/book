@@ -1,15 +1,16 @@
 <template>
   <div class="webpack-html">
-    <CleanWebpackPlugin></CleanWebpackPlugin>
+    <CleanWebpackPluginMd></CleanWebpackPluginMd>
   </div>
 </template>
 
 <script>
-import CleanWebpackPlugin from '../md/clean-webpack-plugin.md';
+import CleanWebpackPluginMd from '../md/clean-webpack-plugin.md';
 
 export default {
+  name: 'CleanWebpackPlugin',
     components: {
-        CleanWebpackPlugin
+        CleanWebpackPluginMd
     }
 }
 </script>

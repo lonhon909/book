@@ -6,8 +6,23 @@ export default {
     children: [
         {
             id: 'entry',
-            title: '1、入口',
+            title: 'Vue 初始化',
             to: '/parse/entry'
+        },
+        {
+            id: 'watch',
+            title: 'Vue.watch原理',
+            to: '/parse/watch'
+        },
+        {
+            id: 'initProps',
+            title: 'props 初始化处理',
+            to: '/parse/initProps'
+        },
+        {
+            id: 'initData',
+            title: 'data 响应式处理',
+            to: '/parse/initData'
         }
     ]
 };

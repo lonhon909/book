@@ -6,6 +6,7 @@ import es6Menu from '@/pages/es6/menu';
 import cssMenu from '@/pages/css/menu';
 import jsMenu from '@/pages/javascript/menu';
 import webMenu from '@/pages/web/menu';
+import canvasMenu from '@/pages/canvas/menu';
 
 export default [
     webbpackMenu,
@@ -15,5 +16,6 @@ export default [
     es6Menu,
     cssMenu,
     jsMenu,
-    webMenu
+    webMenu,
+    canvasMenu
 ];

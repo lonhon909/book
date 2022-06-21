@@ -5,6 +5,16 @@ export default {
     type: 'menu',
     children: [
         {
+            id: 'selector',
+            title: 'css选择器',
+            to: '/css/selector'
+        },
+        {
+            id: 'font-face',
+            title: '@font-face字体',
+            to: '/css/font-face'
+        },
+        {
             id: 'transition',
             title: 'css动画',
             to: '/css/transition',

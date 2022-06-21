@@ -2,6 +2,7 @@
     <div class="app">
         <header class="app-top">
             <p class="iconfont" @click="spread = !spread">&#xe6c0;</p>
+            <p class="back-home" @click="$router.push({name:'Home'})">首页</p>
         </header>
         <transition name="fade">
             <div class="app-center" v-show="spread">
@@ -192,5 +193,13 @@ export default {
 .fade-enter-active,
 .fade-leave-active {
     transition: all 0.3s;
+}
+.back-home {
+    float: right;
+    color: #fff;
+    font-size: 14px;
+    line-height: 64px;
+    padding: 0 20px;
+    cursor: pointer;
 }
 </style>

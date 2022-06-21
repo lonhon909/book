@@ -20,6 +20,7 @@ const router = new Router({
         },
         {
             path: '/home',
+            name: 'Home',
             component: () => import(/* webpackChunkName: 'home' */'@/pages/home/view.vue')
         },
         {
@@ -70,6 +71,13 @@ const router = new Router({
             component: PureComponent,
             children: require('@/pages/web/route').default
         },
+        {
+            path: '/canvas',
+            redirect: '/canvas/base',
+            component: PureComponent,
+            children: require('@/pages/canvas/route').default
+        },
+        ...require('@/pages/home/route').default
     ]
 });
 

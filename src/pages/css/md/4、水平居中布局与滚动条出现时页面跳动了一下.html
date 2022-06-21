@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        html, body{width: 100%;height: 100%;}
+        .app {
+            width: 600px;
+            height: 500px;
+            margin: 0 auto;
+            background-color: antiquewhite;
+            word-break: break-all;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .header {
+            width: 600px;
+            height: 50px;
+            margin: 0 auto;
+            background-color: rgb(130, 174, 231);
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .layer-outer {
+            /* 100vw 是包含滚动条的宽度； 100% 只占据父元素有效的宽度，100vw - 100% 表示滚动条的宽度，这样左右两边都有一个滚动条的宽度或者没有滚动条时都为0 */
+            margin-left: calc(100vw - 100%);
+            /* padding-left: calc(100vw - 100%); 这样也可以 */
+        }
+    </style>
+</head>
+<body>
+    <header class="header">这个会跳动一下</header>
+    <div class="layer-outer">
+        <div class="app" onclick="add();">
+            这个不会跳动
+            <br>
+            点击出现滚动条
+        </div>
+    </div>
+    <script>
+        const app = document.querySelector('.app');
+        function add() {
+            if (app.offsetHeight === 1000) {
+                app.style.height = '500px'
+            } else {
+                app.style.height = '1000px'
+            }
+        }
+    </script>
+</body>
+</html>

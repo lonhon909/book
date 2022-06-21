@@ -1,22 +1,33 @@
 <template>
   <div>
-    <!-- <hh></hh> -->
-    <EchartPieView />
+    <br>
+    <Button type="primary" size="large" @click="jumpRoute('EchartPie')">echarts</Button>
+
+    <Button type="primary" size="large" @click="jumpRoute('CacheRoute')">多级路由 keep-alive 缓存问题，路由级数不固定</Button>
+
+    <Button type="primary" size="large" @click="jumpRoute('VerticalAlignLineHeight')">vertical-align 与 line-height的基友关系</Button>
+
   </div>
 </template>
 
 <script>
-// import H from './h.md';
 import { add } from '@/assets/js/utils';
-import EchartPieView from './pie.vue';
 
 export default {
-  components: {
-    // hh: H,
-    EchartPieView
-  },
   mounted() {
     console.log(add([1, 2, 3]))
+  },
+  methods: {
+    /**
+     * @params { String } 命名路由名称
+     * @params { Object|undefined } 路由参数 { query, params }
+     */
+    jumpRoute(routeName, data = {}) {
+      this.$router.push({
+        name: routeName,
+        ...data
+      });
+    }
   }
 }
 </script>

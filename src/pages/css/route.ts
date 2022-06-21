@@ -1,5 +1,15 @@
 export default [
     {
+        path: 'selector',
+        name: 'css-selector',
+        component: () => import(/* webpackChunkName: 'css-selector' */'./pages/selector.vue')
+    },
+    {
+        path: 'font-face',
+        name: 'FontFace',
+        component: () => import(/* webpackChunkName: 'fontFace' */'./pages/@font-face.vue')
+    },
+    {
         path: 'transition',
         name: 'css-transition',
         component: () => import(/* webpackChunkName: 'css-transition' */'./pages/transition.vue')
