@@ -2,7 +2,7 @@
     <div>
         <CanvasFillStyleMd></CanvasFillStyleMd>
 
-        <canvas id="canvas"></canvas>
+        <canvas id="canvas" class="canvas" width="600" height="300"></canvas>
     </div>
 </template>
 
@@ -26,6 +26,8 @@ export default class CanvasFillStyle extends Vue {
 }
 </script>
 
-<style>
-
+<style lang="less" scoped>
+.canvas {
+    border: 1px solid #ccc;
+}
 </style>
