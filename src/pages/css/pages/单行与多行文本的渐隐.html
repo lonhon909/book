@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0;padding: 0;}
+        .app {width: 300px;}
+        .app p {
+            position: relative;
+        }
+        .app p a {
+            background: linear-gradient(90deg, transparent, transparent 70%,  #fff);
+            background-repeat: no-repeat;
+            cursor: pointer;
+            color: transparent;
+        }
+        .app p a::before {
+            content: var(--text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #000;
+            z-index: -1;
+        }
+
+        .p1 {
+            width: 560px;
+            mask: linear-gradient(90deg, #fff, transparent);
+            /* chrome */
+            -webkit-mask: linear-gradient(90deg, #fff, transparent);
+        }
+    </style>
+</head>
+<body>
+    <p class="p1">单行文本的渐隐单行文本的渐隐单行文本的渐隐单行文本的渐隐单行文本的渐隐</p>
+    <br>
+    <br>
+    <div class="app">
+        <p><a href="" style="--text:'Mollitia nostrum placeat consequatur deserunt velit ducimus possimus commodi temporibus debitis quam'">Mollitia nostrum placeat consequatur deserunt velit ducimus possimus commodi temporibus debitis quam</a></p>
+    </div>
+</body>
+</html>

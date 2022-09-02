@@ -1,9 +1,15 @@
 # new Vue
 
++ `src\platforms\web\entry-runtime-with-compiler.js` 全量包入口起点，包含编译器（`compiler`）和运行时（`runtime`）代码
++ `src\platforms\web\entry-runtime.js` 运行时包入口起点，仅包含运行时（`runtime`）代码
+  * `src\platforms\web\runtime\index.js`
+  * `src\core\index.js`
+  * `src\core\instance\index.js`
+
 ## 1、初始化 new Vue(options) --- `src\core\instance\index.js`
 
 ```js
-// 入口位置 Vue 是一个构造函数，通过 new 调用
+//  Vue 是一个构造函数，通过 new 调用
 function Vue (options) {
   ...
   // 调用 Vue.prototype._init, 该方法在 initMixin 中定义
@@ -17,9 +23,10 @@ function Vue (options) {
 
 ```js
 function initMixin (Vue) {
+  // Vue根组件|局部组件|全局组件|使用 Vue.extend 构建的"子类"|实例化是都会执行 _init
   Vue.prototype._init = function (options?: Object) {
     const vm: Component = this
-    // 每个 Vue 实列都有一个 _uid，并依次递增；局部组件、全局组件、使用 Vue.extend 构建子类初始化都会执行 _init 方法
+    // 每个 Vue 实列都有一个 _uid，并依次递增
     vm._uid = uid++
 
     let startTag, endTag
@@ -31,7 +38,7 @@ function initMixin (Vue) {
     }
 
     // a flag to avoid this being observed
-    vm._isVue = true
+    vm._isVue = true // 标记该对象为 Vue 实例
     // merge options
     if (options && options._isComponent) {
       // ^ _isComponent组件标记，表示当前实例为组件(局部组件，全局组件)
@@ -40,9 +47,9 @@ function initMixin (Vue) {
       // internal component options needs special treatment.
       initInternalComponent(vm, options)
     } else {
-      // ^ 初始化 根组件 new Vue()，或者 Vue.extend 生成的子类生成实例时
+      // 合并options和默认配置生成最终$options；根组件 new Vue()，或者 Vue.extend 构建的子类实例化时
       vm.$options = mergeOptions(
-        // 解析默认 options : component、directive、filter、_base
+        // 解析默认 options 
         resolveConstructorOptions(vm.constructor),
         options || {},
         vm
@@ -111,3 +118,7 @@ function initMixin (Vue) {
   }
 }
 ```
+
+### 解析默认配置 resolveConstructorOptions
+
+请查看 <a href="/parse/resolveConstructorOptions">resolveConstructorOptions</a>

@@ -15,6 +15,26 @@ export default {
             to: '/es6/string',
         },
         {
+            id: 'es6Number',
+            title: 'Number',
+            to: '/es6/number',
+        },
+        {
+            id: 'es6Array',
+            title: 'Array',
+            to: '/es6/array',
+        },
+        {
+            id: 'operator',
+            title: '可选链 非空判断运算符',
+            to: '/es6/operator',
+        },
+        {
+            id: 'es6Object',
+            title: 'Object',
+            to: '/es6/object',
+        },
+        {
             id: 'Reflect',
             title: 'Reflect',
             to: '/es6/Reflect',

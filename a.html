@@ -1,0 +1,56 @@
+<script>
+    
+/**
+ * @param {number[]} candidates
+ * @param {number} target
+ * @return {number[][]}
+ */
+var combinationSum = function(candidates, target) {
+    function dfs(arr, target, start = 0) {
+
+        const temp = { value: target, children: [] };
+
+        for (let i = start; i < arr.length; i++) {
+            const val = target - arr[i];
+            if (val <= 0) {
+                temp.children.push({ value: val, children: null });
+                break;
+            }
+            if (val > 0) {
+                temp.children.push(dfs(arr, val, i))
+            }
+        }
+
+        return temp;
+    }
+    const res = dfs(candidates.sort((a, b) => a - b), target);
+
+    console.log(res)
+
+    function dd(arr, result, k) {
+        arr.children.forEach((item) => {
+            if (item.value === 0) {
+                result.push([...k, 0]);
+            }
+            if (item.children) {
+
+                dd(item, result, [...k, item.value]);
+            }
+        })
+    }
+    const result = [];
+
+    dd(res, result, [res.value]);
+
+    return result.map((item) => {
+        const tmp = [];
+        for (let k = 0; k <= item.length - 2; k++) {
+            tmp.push(item[k] - item[k + 1])
+        }
+        return tmp;
+    });
+};
+
+console.log(combinationSum([1,2,3,5,6,7], 9))
+
+</script>

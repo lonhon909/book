@@ -2,6 +2,7 @@
     <div class="app">
         <header class="app-top">
             <p class="iconfont" @click="spread = !spread">&#xe6c0;</p>
+            <router-link to="/v3-app" class="router-link">v3-app</router-link>
             <p class="back-home" @click="$router.push({name:'Home'})">首页</p>
         </header>
         <transition name="fade">
@@ -15,7 +16,8 @@
                         :active-name="activeName"
                         :open-names="openNames"
                         width="240px"
-                        class="nav-bg">
+                        class="nav-bg"
+                        @on-select="handleSelect">
                         <Submenu
                             v-for="item in menu"
                             :key="item.id"
@@ -60,9 +62,10 @@
                 </nav>
             </div>
         </transition>
-        <main class="main">
+        <div class="app-container">
             <router-view></router-view>
-        </main>
+            <div id="sub-app"></div>
+        </div>
     </div>
 </template>
 
@@ -87,8 +90,16 @@ export default {
             menu,
             spread: false,
             activeName: '',
-            openNames: []
+            openNames: [],
         };
+    },
+    computed: {
+        menuValues() {
+            return this.menu.map((item) => Array.isArray(item.children) ? item.children.map((res) => Array.isArray(res.children) ? res.children : res) : []).flat().reduce((total, item) => {
+                total[item.id] = item.title;
+                return total;
+            }, {})
+        }
     },
     created() {
         if (isMobile()) {
@@ -131,6 +142,15 @@ export default {
             }
         })
     },
+    methods: {
+        handleSelect(key) {
+            // console.log(key, this.menu);
+            const title = this.menuValues[key];
+            if (title) {
+                document.title = title;
+            }
+        }
+    }
 };
 </script>
 
@@ -141,15 +161,9 @@ export default {
     position: relative;
     padding-top: 64px;
     display: flex;
-    .main {
-        flex: 1;
-        padding-left: 10px;
-        overflow-y: auto;
-        & > :only-child {
-            width: 100%;
-            height: 100%;
-        }
-    }
+}
+#sub-app {
+    flex: 1;
 }
 .app-top {
     position: absolute;
@@ -201,5 +215,14 @@ export default {
     line-height: 64px;
     padding: 0 20px;
     cursor: pointer;
+}
+.router-link {
+    display: inline-block;
+    padding: 0 20px;
+    margin-left: 20px;
+    color: #fff;
+}
+.app-container {
+    flex: 1;
 }
 </style>

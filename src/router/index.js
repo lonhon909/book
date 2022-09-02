@@ -77,6 +77,12 @@ const router = new Router({
             component: PureComponent,
             children: require('@/pages/canvas/route').default
         },
+        {
+            path: '/webgl',
+            redirect: '/webgl/base',
+            component: PureComponent,
+            children: require('@/pages/webgl/route').default
+        },
         ...require('@/pages/home/route').default
     ]
 });

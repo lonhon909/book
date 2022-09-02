@@ -38,6 +38,11 @@ export default {
             id: 'layers',
             title: '合成层',
             to: '/css/layers'
-        }
+        },
+        {
+            id: 'gradient',
+            title: 'css 渐变',
+            to: '/css/gradient'
+        },
     ]
 };
