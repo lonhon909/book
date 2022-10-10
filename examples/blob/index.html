@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./download.js"></script>
+</head>
+<body>
+    <input id="file" type="file" onchange="handleChange();">
+
+    <script>
+
+        const elm = document.getElementById('file');
+
+        function handleChange() {
+            const file = elm.files[0];
+
+            const url = window.URL.createObjectURL(file);
+
+            const image = new Image();
+
+            image.src = url;
+
+            image.setAttribute("crossOrigin", "Anonymous");
+
+            console.log(image)
+
+            image.addEventListener('click', hadnleDownload)
+
+            document.body.appendChild(image);
+        }
+    </script>
+</body>
+</html>
