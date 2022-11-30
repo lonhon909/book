@@ -60,6 +60,12 @@ const router = new Router({
             children: require('@/pages/css/route').default
         },
         {
+            path: '/html',
+            redirect: '/html/meta',
+            component: PureComponent,
+            children: require('@/pages/html/route').default
+        },
+        {
             path: '/js',
             redirect: '/js/requestAnimationFrame',
             component: PureComponent,

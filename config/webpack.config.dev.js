@@ -7,7 +7,7 @@ const devConfig = merge(baseConfig, {
 
     devServer: {
         static: 'dist',
-        port: 8081,
+        port: 8083,
         historyApiFallback: true,
         headers: {
             'Access-Control-Allow-Origin': '*'
