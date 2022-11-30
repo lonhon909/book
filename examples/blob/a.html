@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./download.js"></script>
+    <style>
+        img{
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e36520e1c3854241866dafe94a1f54b3~tplv-k3u1fbpfcp-zoom-crop-mark:3024:3024:3024:1702.awebp?" alt="">
+    <input id="file" type="button" value="按钮" onclick="handleChange();">
+
+    <script>
+
+        function handleChange() {
+            const image = new Image();
+            image.setAttribute("crossOrigin", "Anonymous");
+
+            image.onload = () => {
+                const canvas = document.createElement('canvas');
+
+                canvas.width = image.width;
+                canvas.height = image.height;
+
+                const ctx = canvas.getContext('2d');
+
+                ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+                const base64 = canvas.toDataURL();
+                
+                const blob = dataURLtoBlob(base64);
+
+                saveBlob(blob, {
+                    fileName: blob.type.replace('/', '.')
+                })
+            }
+
+            image.src = document.querySelector('img').getAttribute('src');
+        }
+
+    </script>
+</body>
+</html>
