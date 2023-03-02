@@ -12,6 +12,8 @@ import './assets/style';
 
 import vLoading from './common/directives/loading';
 Vue.directive('loading', vLoading);
+import VueLazyload from 'vue-lazyload';
+Vue.use(VueLazyload)
 
 // Vue.use(iViewUI);
 import iview from './iview';

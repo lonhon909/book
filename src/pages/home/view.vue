@@ -7,6 +7,7 @@
 
     <Button type="primary" size="large" @click="jumpRoute('VerticalAlignLineHeight')">vertical-align 与 line-height的基友关系</Button>
 
+    <Button type="primary" size="large" @click="jumpRoute('LazyImage')">图片懒加载 vue-lazyload</Button>
   </div>
 </template>
 
