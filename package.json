@@ -55,6 +55,7 @@
     "@babel/runtime-corejs3": "^7.16.3",
     "axios": "^0.24.0",
     "babel-loader": "^8.2.2",
+    "better-scroll": "^2.5.1",
     "copy-webpack-plugin": "^9.1.0",
     "core-js": "^3.19.1",
     "echarts": "^5.2.2",

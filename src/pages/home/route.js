@@ -59,5 +59,10 @@ export default [
         path: '/lazy-image',
         name: 'LazyImage',
         component: () => import(/* webpackChunkName: 'lazyImage' */'./view/lazy-image.vue')
+    },
+    {
+        path: '/better-scroll',
+        name: 'betterScroll',
+        component: () => import(/* webpackChunkName: 'betterScroll' */'./view/better-scroll.vue')
     }
 ];
