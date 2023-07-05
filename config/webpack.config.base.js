@@ -171,7 +171,7 @@ module.exports = {
             title: '一样标题',
             filename: 'index.html',
             template: 'index.html',
-            favicon: './star.png'
+            favicon: './zhishi.png'
         }),
 
         new VueLoaderPlugin(),

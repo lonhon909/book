@@ -55,7 +55,7 @@ export default class CanvasToDataURL extends Vue {
          */
         this.canvas.toBlob((blob) => {
             const image = new Image();
-            const url = URL.createObjectURL(blob);
+            const url = URL.createObjectURL(<Blob>blob);
             image.onload = function() {
                 URL.revokeObjectURL(url);
             }

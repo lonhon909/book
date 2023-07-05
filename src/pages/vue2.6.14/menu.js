@@ -10,9 +10,24 @@ export default {
             to: '/parse/entry'
         },
         {
+            id: 'initGlobalAPI',
+            title: 'initGlobalAPI 全局API',
+            to: '/parse/initGlobalAPI'
+        },
+        {
+            id: 'resolveConstructorOptions',
+            title: 'resolveConstructorOptions 解析默认配置',
+            to: '/parse/resolveConstructorOptions'
+        },
+        {
             id: 'watch',
             title: 'Vue.watch原理',
             to: '/parse/watch'
+        },
+        {
+            id: 'initState',
+            title: '初始化 props methods data computed watch',
+            to: '/parse/initState'
         },
         {
             id: 'initProps',
@@ -23,6 +38,16 @@ export default {
             id: 'initData',
             title: 'data 响应式处理',
             to: '/parse/initData'
-        }
+        },
+        {
+            id: 'eventsMixin',
+            title: '$on|$once|$off|$emit',
+            to: '/parse/eventsMixin'
+        },
+        {
+            id: 'initProvide_initInjections',
+            title: 'initProvide && initInjections',
+            to: '/parse/initProvide_initInjections'
+        },
     ]
 };

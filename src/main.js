@@ -1,8 +1,9 @@
-import './public-path';
 import Vue from 'vue';
+import { registerMicroApps, start } from 'qiankun';
 import router from './router';
 import store from './store';
 import App from './App';
+import subApps from './sub-app';
 // import './test';
 
 // import iViewUI from 'iview';
@@ -11,37 +12,36 @@ import './assets/style';
 
 import vLoading from './common/directives/loading';
 Vue.directive('loading', vLoading);
+import VueLazyload from 'vue-lazyload';
+Vue.use(VueLazyload)
 
 // Vue.use(iViewUI);
 import iview from './iview';
 
 Object.keys(iview).forEach((item) => Vue.component(item, iview[item]));
 
-let app = null;
+new Vue({
+    router,
+    store,
+    render: h => h(App)
+}).$mount(document.querySelector('#app'));
 
-export async function bootstrap() {
-    console.log('bootstrap')
-}
+registerMicroApps(subApps, {
+    beforeLoad() {
+        console.log('beforeLoad');
+    },
+    beforeMount () {
+        console.log('beforeMount');
+    },
+    afterMount () {
+        console.log('afterMount');
+    },
+    beforeUnmount () {
+        console.log('beforeUnmount');
+    },
+    afterUnmount () {
+        console.log('afterUnmount');
+    },
+})
 
-export async function mount(props) {
-    app = new Vue({
-        router,
-        store,
-        render: h => h(App)
-    }).$mount(props.container.querySelector('#app'));
-}
-
-export async function unmount() {
-    app.$destroy();
-    app.$el.innerHTML = '';
-    app = null;
-}
-
-if (!window.__POWERED_BY_QIANKUN__) {
-    new Vue({
-        el: '#app',
-        router,
-        store,
-        render: h => h(App)
-    });
-}
+start();

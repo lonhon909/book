@@ -34,4 +34,9 @@ export default [
         name: 'css-layers',
         component: () => import(/* webpackChunkName: 'css-layers' */'./pages/layers.vue')
     },
+    {
+        path: 'gradient',
+        name: 'css-gradient',
+        component: () => import(/* webpackChunkName: 'css-gradient' */'./pages/gradient.vue')
+    },
 ];

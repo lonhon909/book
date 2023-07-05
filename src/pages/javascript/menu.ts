@@ -9,5 +9,10 @@ export default {
             title: 'requestAnimationFrame',
             to: '/js/requestAnimationFrame',
         },
+        {
+            id: 'markdown',
+            title: 'Markdown 语法',
+            to: '/js/markdown',
+        },
     ]
 }

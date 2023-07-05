@@ -1,0 +1,50 @@
+<script>
+/**
+ * @param {number} n
+ * @return {string[]}
+ */
+var generateParenthesis = function(n) {
+    if (n < 0) return [];
+    const list = [[null], ['()']];
+    for (let i = 2; i <= n; i++) {
+        let inner, out, temp;
+        let res = [];
+        debugger
+        for (let k = i - 1; k >= 0; k--) {
+            inner = list[k]; // 内部
+            out = list[i - 1 - k]; // 右侧
+
+            for (let innerItem of inner) {
+                let k1 = innerItem === null ? '' : innerItem;
+                for (let outItem of out) {
+                    let k2 = outItem === null ? '' : outItem;
+                    res.push(`(${k1})${k2}`);
+                }
+            }
+
+        }
+        list.push(res);
+        // res = res.map((item) => ({
+        //     value: item,
+        //     num: item.replace(/\(/g, '1').replace(/\)/g, '0')
+        // }));
+        // res.sort((a, b) => b.num - a.num);
+
+        // list.push(res.map((item) => item.value))
+    }
+    return list[n];
+};
+/*
+['(())', '()()']
+[]
+
+['()']
+['()']
+
+[]
+['(())', '()()']
+*/
+
+const b = generateParenthesis(4);
+console.log(b)
+</script>

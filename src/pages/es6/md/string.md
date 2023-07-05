@@ -20,3 +20,31 @@
 'aabbcc'.replaceAll('b', () => '_') // 第二个参数是一个函数
 
 ```
+### 标签模板
+
+标签模板其实不是模板，`而是函数调用的一种特殊形式`。“标签”指的就是函数，紧跟在后面的模板字符串就是它的参数
+
+```js
+let a = 1, b = 2, c = 3;
+function sss() {
+    console.log(arguments) // Arguments: ['Hsd ', ' ddsd sdd ', ' asd ', ''], 1, 2, 3
+}
+// 标签模板 第一个参数为模板中没有变量组成的数组
+sss`Hsd ${a} ddsd sdd ${b} asd ${c}`;
+// 等同于
+sss(['Hsd ', ' ddsd sdd ', ' asd ', ''], a, b, c);
+
+// 过滤 HTML 字符串，防止用户输入恶意内容
+const message = `<p>你好！${value}</p>`;
+function handleMessage(arrs, ...rest) {
+    let s = arrs[0];
+    for (let i = 1; i < rest.length; i++) {
+        let arg = String(rest[i]);
+        s += arg.replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+        s += rest[i];
+    }
+    return s;
+}
+```

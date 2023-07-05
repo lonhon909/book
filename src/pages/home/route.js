@@ -54,5 +54,15 @@ export default [
         path: '/vertical-align',
         name: 'VerticalAlignLineHeight',
         component: () => import(/* webpackChunkName: 'verticalAlignLineHeight' */'./view/vertical-align-line-height.vue')
+    },
+    {
+        path: '/lazy-image',
+        name: 'LazyImage',
+        component: () => import(/* webpackChunkName: 'lazyImage' */'./view/lazy-image.vue')
+    },
+    {
+        path: '/better-scroll',
+        name: 'betterScroll',
+        component: () => import(/* webpackChunkName: 'betterScroll' */'./view/better-scroll.vue')
     }
 ];

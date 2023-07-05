@@ -2,5 +2,7 @@ node_modules
 dist
 .DS_Store
 .vscode
-examples/entry/dist
-examples/entry/node_modules
+examples/webpack5/node_modules
+examples/webpack5/dist
+examples/webpack5_1/node_modules
+examples/webpack5_1/dist
