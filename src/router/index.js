@@ -55,7 +55,7 @@ const router = new Router({
         },
         {
             path: '/css',
-            redirect: '/css/transition',
+            redirect: '/css/effect',
             component: PureComponent,
             children: require('@/pages/css/route').default
         },
@@ -88,6 +88,12 @@ const router = new Router({
             redirect: '/webgl/base',
             component: PureComponent,
             children: require('@/pages/webgl/route').default
+        },
+        {
+            path: '/tools',
+            redirect: '/tools/charles',
+            component: PureComponent,
+            children: require('@/pages/tools/route').default
         },
         ...require('@/pages/home/route').default
     ]

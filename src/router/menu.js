@@ -9,6 +9,7 @@ import jsMenu from '@/pages/javascript/menu';
 import webMenu from '@/pages/web/menu';
 import canvasMenu from '@/pages/canvas/menu';
 import webglMenu from '@/pages/webgl/menu';
+import toolsMenu from '@/pages/tools/menu';
 
 export default [
     webbpackMenu,
@@ -21,5 +22,6 @@ export default [
     jsMenu,
     webMenu,
     canvasMenu,
-    webglMenu
+    webglMenu,
+    toolsMenu
 ];

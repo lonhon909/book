@@ -5,6 +5,11 @@ export default {
     type: 'menu',
     children: [
         {
+            id: 'effect',
+            title: '展示效果',
+            to: '/css/effect'
+        },
+        {
             id: 'selector',
             title: 'css选择器',
             to: '/css/selector'

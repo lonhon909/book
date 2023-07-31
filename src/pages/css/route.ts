@@ -1,5 +1,10 @@
 export default [
     {
+        path: 'effect',
+        name: 'css-effect',
+        component: () => import(/* webpackChunkName: 'css-effect' */'./pages/effect.vue')
+    },
+    {
         path: 'selector',
         name: 'css-selector',
         component: () => import(/* webpackChunkName: 'css-selector' */'./pages/selector.vue')
