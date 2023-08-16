@@ -12,7 +12,7 @@ Router.prototype.push = function push (to) {
 
 const router = new Router({
     mode: 'history',
-    base: window.__POWERED_BY_QIANKUN__ ? '/vue' : '/',
+    // base: window.__POWERED_BY_QIANKUN__ ? '/vue' : '/',
     routes: [
         {
             path: '/',
