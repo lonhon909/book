@@ -13,5 +13,10 @@ export default [
         path: 'git',
         name: 'GitAction',
         component: () => import(/* webpackChunkName: 'GitAction' */'./pages/git.vue')
+    },
+    {
+        path: 'crypto',
+        name: 'crypto-info',
+        component: () => import(/* webpackChunkName: 'cryptoInfo' */'./pages/crypto.vue')
     }
 ];

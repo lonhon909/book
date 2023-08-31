@@ -18,6 +18,11 @@ export default {
             id: 'git',
             title: 'git',
             to: '/web/git'
-        }
+        },
+        {
+            id: 'crypto',
+            title: 'crypto',
+            to: '/web/crypto'
+        },
     ]
 };
