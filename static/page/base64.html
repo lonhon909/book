@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片转base64</title>
+    <link rel="stylesheet" href="./index.css">
+    <style>
+        .app {
+            width: 280px;
+            height: 280px;
+            border: 1px dashed burlywood;
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .tip {
+            font-size: 20px;
+            text-align: center;
+            user-select: none;
+        }
+        .file {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .app.has .tip {
+            display: none;
+        }
+        .container {
+            padding: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .base-url {
+            font-size: 12px;
+            line-height: 20px;
+            word-break: break-all;
+        }
+        .actions {
+            margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        .action_item {
+            padding: 0 16px;
+            font-size: 14px;
+            color: #fff;
+            line-height: 32px;
+            background-color: #2d8cf0;
+            margin-top: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .action_item:active {
+            background-color: #1b7feb;
+        }
+
+        .app + .actions .action_item {
+            cursor: not-allowed;
+        }
+        .app.has + .actions .action_item {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <p class="theme">图片转base64</p>
+    <div style="display: flex;margin: 10px 0;">
+        <div class="app">
+            <input class="file" type="file" accept="image/*">
+            <p class="tip">点击上传或拖入图片</p>
+            <img class="image" src="" alt="">
+        </div>
+        <div class="actions">
+            <div class="action_item close">清除</div>
+            <div class="action_item copy">复制</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <p class="base-url"></p>
+    </div>
+
+    <script src="./index.js"></script>
+
+    <script>
+        const app = document.querySelector('.app');
+        const elm = document.querySelector('.file');
+        const image = document.querySelector('.image');
+        const base = document.querySelector('.base-url');
+        const close = document.querySelector('.close');
+        const copy = document.querySelector('.copy');
+
+        elm.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+
+            const reader = new FileReader()
+
+            reader.onload = (res) => {
+
+                base.innerText = reader.result
+            }
+
+            reader.readAsDataURL(file)
+
+            const url = URL.createObjectURL(file);
+
+            app.classList.add('has')
+
+            image.src = url;
+
+            setTimeout(() => {
+                URL.revokeObjectURL(url)
+            })
+        })
+
+        close.addEventListener('click', () => {
+            elm.value = null
+            image.src = ''
+            base.innerText = ''
+
+            app.classList.remove('has')
+        })
+
+        copy.addEventListener('click', () => {
+            copyToClipboard(base.innerText)
+
+            Toast.success('复制成功')
+        })
+
+        function copyToClipboard(text) {
+            var textarea = document.createElement('textarea');
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = 0;
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+        }
+    </script>
+</body>
+</html>

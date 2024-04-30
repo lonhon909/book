@@ -11,6 +11,8 @@
 
     <Button type="primary" size="large" @click="jumpRoute('betterScroll')">better-scroll</Button>
 
+    <Button type="primary" size="large" @click="jumpRoute('base64')">图片转base64</Button>
+
   </div>
 </template>
 

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0;padding: 0;}
+        .app {
+            margin: 20px;
+        }
+
+        .line {
+            display: flex;
+            font-size: 16px;
+            line-height: 36px;
+            color: black;
+            margin-bottom: 12px;
+        }
+
+        .line > span {
+            width: 5em;
+        }
+        .line input {
+            outline: none;
+            border: 1px solid #ccc;
+            width: 640px;
+            padding: 4px 12px;
+            border-radius: 2px;
+        }
+
+        .btn {
+            margin-left: 5em;
+            width: 72px;
+            background-color: rgba(0, 0, 255, 0.5);
+            border-radius: 2px;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <div class="host line">
+            <span>host</span>
+            <input type="text" placeholder="请输入" id="host">
+        </div>
+
+        <div class="m3u8 line">
+            <span>m3u8</span>
+            <input type="text" placeholder="请输入" id="m3u8">
+        </div>
+
+        <div class="m3u8 line">
+            <span>filename</span>
+            <input type="text" placeholder="请输入" id="filename">
+        </div>
+
+        <div class="line">
+            <div class="btn">下载</div>
+        </div>
+    </div>
+
+
+    <script>
+        const host = document.getElementById('host');
+        const m3u8 = document.getElementById('m3u8');
+        const filename = document.getElementById('filename');
+
+        document.querySelector('.btn').addEventListener('click', () => {
+
+            if (!m3u8) {
+                return;
+            }
+
+            fetch('/download', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    host: host.value,
+                    m3u8: m3u8.value,
+                    filename: filename.value
+                })
+            })
+        })
+
+    </script>
+</body>
+</html>

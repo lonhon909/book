@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旋转流光</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            height: 100%;
+            background-color: black;
+        }
+        .app {
+            margin: 20px auto;
+            width: 400px;
+            height: 200px;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app::after {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -400px;
+            bottom: -200px;
+            left: -400px;
+            z-index: 1;
+            border-radius: 8px;
+            background-image: conic-gradient(from 0turn at 50% 50%, transparent, #70ffaf 14%, transparent 17%);
+            background-size: contain;
+            transform-origin: center;
+            animation: buttonBorderSpin 6s linear infinite;
+        }
+        .app::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            bottom: 2px;
+            left: 2px;
+            z-index: 2;
+            background-color: black;
+            border-radius: 8px;
+        }
+
+        @keyframes buttonBorderSpin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* .demo {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background-image: conic-gradient(from var(--border-gradient-angle) at 50% 50%, transparent, #70ffaf 14%, transparent 17%);
+            background-size: contain;
+        } */
+
+        
+    </style>
+</head>
+<body>
+    <div class="app"></div>
+
+    <div class="box"></div>
+</body>
+</html>

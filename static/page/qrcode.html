@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <p class="theme">easdasdasdasdsadadasdawdsadawdadawd</p>
+
+    <script src="./index.js"></script>
+    <script>
+        const url = 'https://juejin.cn';
+        const Alphanumeric = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:'.split('').reduce((total, item, index) => {
+            total[item] = index;
+            return total;
+        }, {})
+
+        const groups = [];
+        const chars = url.split('').map((key) => Alphanumeric[key.toLocaleUpperCase()]);
+        console.log(chars)
+
+        let i = 0;
+        while(i <= chars.length - 1) {
+            groups.push(chars.slice(i, i + 2));
+            i += 2
+        }
+
+        let result = groups.map(([n1, n2]) => {
+            let res;
+            if (n2 === undefined) {
+                res = n1.toString(2)
+                if (res.length < 6) {
+                    res = '000000'.substring(0, 6 - res.length) + res
+                }
+            } else {
+                res = (n1 * 45 + n2).toString(2);
+                if (res.length < 11) {
+                    res = '00000000000'.substring(0, 11 - res.length) + res
+                }
+            }
+            return res;
+        }).join('');
+
+        const mode = '0010';
+        const Alphanumericmode = `000000000${url.length.toString(2)}`.substr(-9);
+
+        result = mode + Alphanumericmode + result;
+        if (result.length % 8 !== 0) {
+            result = result + '00000000'.substr(-(8 - result.length % 8))
+        }
+
+        // 1-L 为 19个源数据编码，总 19 * 8 = 
+        while(result.length < 152) {
+            result = result + '1110110000010001'
+            if (result.length > 152) {
+                result = result.substring(0, 152)
+            }
+        }
+
+        console.log(result)
+    </script>
+</body>
+</html>
